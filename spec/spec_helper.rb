@@ -20,12 +20,10 @@ ActionMailer::Base.default_url_options[:host] = "example.com"
 Rails.backtrace_cleaner.remove_silencers!
 
 include DatabaseHelpers
-# Run any available migration
 puts 'Setting up database...'
 drop_all_tables
 migrate_database
 ENV['SKIP_RAILS_ADMIN_INITIALIZER'] = 'false'
-# Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each{|f| require f}
 
 RSpec.configure do |config|
@@ -36,10 +34,10 @@ RSpec.configure do |config|
   config.include Piggybak::Engine.routes.url_helpers
 
   config.before(:each) do
-    RailsAdmin::AbstractModel.all_models = nil
-    RailsAdmin::AbstractModel.all_abstract_models = nil
-    RailsAdmin::AbstractModel.new("User").destroy_all!
-    RailsAdmin::AbstractModel.new("Image").destroy_all!
+#    RailsAdmin::AbstractModel.all_models = nil
+#    RailsAdmin::AbstractModel.all_abstract_models = nil
+#    RailsAdmin::AbstractModel.new("User").destroy_all!
+#    RailsAdmin::AbstractModel.new("Image").destroy_all!
   end
 
   config.after(:each) do

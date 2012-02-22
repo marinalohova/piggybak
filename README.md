@@ -33,6 +33,13 @@ Installation
 * You must include jquery_ujs in your application.js file in to get the remove item from cart functionality to work.
 
         //= require jquery_ujs
+Testing
+=========
+1. Copy migrations from the engine into the dummy app.
+$ cd dummy_app
+$ bundle exec rake piggybak_engine:install:migrations
+2. Run the test case.
+
 
 More Details
 ========

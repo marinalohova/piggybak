@@ -31,7 +31,8 @@ module Piggybak
     def initialize_nested
       self.billing_address ||= Piggybak::Address.new
       self.shipping_address ||= Piggybak::Address.new
-      self.shipments ||= [Piggybak::Shipment.new] 
+      #todo: never reachable, always [] or fails when explicitly passed in nil
+      self.shipments ||= [Piggybak::Shipment.new]
       self.payments ||= [Piggybak::Payment.new]
       if self.payments.any?
         self.payments.first.payment_method_id = Piggybak::PaymentMethod.find_by_active(true).id
